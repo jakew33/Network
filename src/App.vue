@@ -28,6 +28,10 @@ export default {
   --main-height: calc(100vh - 32px - 64px);
 }
 
+main {
+  background-color: rgba(72, 70, 70, 1);
+}
+
 
 footer {
   display: grid;

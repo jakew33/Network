@@ -13,6 +13,9 @@
         </p>
       </div>
       <p> <b>{{ profile.name }}</b> </p>
+      <p> <b>{{ profile.email }}</b> </p>
+      <p> <b>{{ profile.github }}</b> </p>
+      <p> <b>{{ profile.bio }}</b> </p>
       <p v-if="profile.socialPlatform">
       <a :href="profile.socialPlatform" target="_blank" rel="noopener"></a>
       </p>

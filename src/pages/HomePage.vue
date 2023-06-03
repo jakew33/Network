@@ -42,7 +42,6 @@ export default {
             posts: computed(() => AppState.posts),
             newer: computed(() => AppState.newer),
             older: computed(() => AppState.older),
-            
             async changePage(url) {
               try {
                 await postsService.changePage(url)
