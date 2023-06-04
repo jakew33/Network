@@ -5,20 +5,41 @@
   <main>
     <router-view />
   </main>
+
+        <!-- <div class="row justify-content-center align-content-center">
+        <div class="col-md-4 m-auto postCard" v-for="a in ads" :key="a.id">
+          <PostCard :adProp="a"/>
+        </div>
+      </div> -->
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
+import { adsService } from "./services/AdsService.js"
+import Pop from "./utils/Pop.js"
 
 export default {
   setup() {
+    async function getAds() {
+      try {
+        await adsService.getAds()
+      } catch (error) {
+          Pop.error(error, "[Getting Ads]")
+        
+      }
+    }
+    onMounted(() => {
+      getAds();
+    })
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      ads: computed(() => AppState.ads)
     }
   },
   components: { Navbar }
+
 }
 </script>
 <style lang="scss">
