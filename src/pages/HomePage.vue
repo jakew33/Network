@@ -3,18 +3,12 @@
     <button :disabled="!newer" @click="$event => changePage(newer)" class="btn btn-light">Newer</button>
     <button :disabled="!older" @click="$event => changePage(older)" class="btn btn-light">Older</button>
   </div>
-
-
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12" v-for="p in posts" :key="p.id">
         <PostCard :postProp="p"/>
       </div>
     </div>
-
-
-      
   </div>
 </template>
 
@@ -58,3 +52,8 @@ export default {
 <style scoped lang="scss">
 
 </style>
+
+
+
+
+

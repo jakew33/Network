@@ -29,7 +29,7 @@ export default {
 }
 
 main {
-  background-color: rgba(72, 70, 70, 1);
+  background-color: rgb(3, 17, 81);
 }
 
 

@@ -1,18 +1,20 @@
 <template>
-<div>hello</div>
+
+  <div>Sup</div>
+
 </template>
 
 
 <script>
 import { computed } from "vue";
-// import { Account } from "../models/Account.js";
-// import { Profile } from "../models/Profile.js";
+import { Account } from "../models/Account.js";
+import { Profile } from "../models/Profile.js";
 
 
 export default {
-  // props: {
-  //   profile: { type: [Profile, Account], required: true }
-  // },
+  props: {
+    profile: { type: [Profile, Account], required: true }
+  },
   setup(props) {
   return { 
     coverImg: computed(() => `url${props.profile?.coverImg}`)
@@ -23,5 +25,18 @@ export default {
 
 
 <style lang="scss" scoped>
+
+.profileCard{
+  background-image: v-bind(coverImg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  place-content: center;
+}
+
+.profilePicture {
+  height: 100px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
 
 </style>

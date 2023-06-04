@@ -9,7 +9,7 @@ class AdsService {
 
   async getAds(){
     AppState.ads = []
-    const res = await api.get('api/ads')
+    const res = await api.get('api/ads/banner')
     logger.log('ads', res.data)
     AppState.ads = res.data.ads.map(a => new Ad(a))
   }

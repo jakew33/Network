@@ -24,6 +24,17 @@ class PostsService {
     AppState.posts = res.data.posts.map(p => new Post((p)))
   }
 
+  async createPost(formData) {
+    const res = await api.post('api/posts', formData)
+    logger.log('[Making Post]', res.data)
+    AppState.posts.unshift(new Post(res.data))
+  }
+
+  async deletePost(formData) {
+    const res = await api.delete('api/posts/id')
+    logger.log('[Deleting Post]', res.data)
+  }
+
   async changePage(url) {
     const res = await api.get(url)
     logger.log('changing page', res.data)
