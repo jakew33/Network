@@ -24,8 +24,14 @@
         <input name="name" class="form-control" placeholder="Class" type="text" required v-model="editable.class">
         <label for="bio">Class:</label>
       </div>
-
-
+      <div class="form-floating mb-3">
+        <input name="cover-img" class="form-control" placeholder="Social" type="url"  v-model="editable.socialPlatform">
+        <label for="cover-img">Social:</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input name="cover-img" class="form-control" placeholder="Resume" type="url"  v-model="editable.resume">
+        <label for="cover-img">Resume:</label>
+      </div>
     </div>
     <div class="card-footer text-end">
       <button class="btn btn-outline-primary" type="submit">Save Account</button>

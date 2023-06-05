@@ -6,11 +6,7 @@
     </div>
   </div>
     <div>
-    <h1>{{ ad.title }}</h1>
-    <a :href="banner.linkURL" target="_blank">{{ bannerProp.banner }}</a>
-    <img :src="banner.banner" alt="Banner">
-    <img :src="banner.square" alt="Square">
-    <img :src="banner.tall" alt="Tall">
+    <img :href="bannerProp.linkURL" target="_blank">{{ bannerProp.banner }}>
   </div>
 </div>
 </template>

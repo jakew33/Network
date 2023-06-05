@@ -8,7 +8,7 @@ import { api } from "./AxiosService.js"
 class BannersService {
 
 async getBanners() {
-  AppState.banners = []
+  // AppState.banners = []
   const res = await api.get('api/ads')
   logger.log('getting ads', res.data)
   AppState.banners = res.data.map(b => new Banner(b))

@@ -102,10 +102,10 @@ export default {
 
 
 
-// .profilePicture{
-//   height: 200px;
-//   aspect-ratio: 1/1;
-// }
+.profilePicture{
+  height: 200px;
+  aspect-ratio: 1/1;
+}
 
 .coverImg {
   height: 500px;

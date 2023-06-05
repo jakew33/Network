@@ -1,67 +1,40 @@
 <template>
-  <div class="component">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Create Post</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="container">
+    <div class="row justify-content-start p-1 mb-5">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <form @submit.prevent="createPost()">
+              <input class="form-control m-2" type="text" placeholder="Say Something" name="Say Something"/>
+              <input class="form-control m-2" type="text" placeholder="Add Image" />
+              <button class="btn btn-success col-4 m-2" type="submit">OverShare</button>
+            </form>
+          </div>
         </div>
-
-        <form @submit="submitPostForm()">
-            <div class="modal-body" name="modal-body">
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" v-model="editable.description" required class="form-control" id="description">
-                </div>
-                <div class="mb-3">
-                    <label for="imgUrl" class="form-label">ImgUrl</label>
-                    <input type="url" v-model="editable.imgUrl" required class="form-control" id="imgUrl">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Create Post</button>
-            </div>
-        </form>
+      </div>
     </div>
-
   </div>
 </template>
 
-
-
 <script>
-
-import { postsService } from "../services/PostsService.js";
-import { Modal } from "bootstrap";
-import Pop from "../utils/Pop.js";
 import { logger } from "../utils/Logger.js";
-import { ref } from "vue";
+
+import Pop from "../utils/Pop.js";
 export default {
-  setup(){
-
-    const editable = ref({})
-  return { 
-    editable,
-
-    async submitPostForm() {
+  setup() {
+    async function createPost(event) { 
       try {
-        logger.log('submitting postForm')
-        const formData = editable.value
-        window.EventTarget.preventDefault()
-        await postsService.createPost(formData)
-        editable.value = {}
-        Modal.getOrCreateInstance('#create-post').hide()
+        const postBody = event.target.postBody.value;
+        logger.log(postBody); 
       } catch (error) {
-        Pop.error(error.message)
-        logger.log(error)
-        
+        Pop.error(error);
       }
     }
-   }
-  }
+    
+    return { createPost };
+  },
 };
 </script>
-
 
 <style lang="scss" scoped>
 

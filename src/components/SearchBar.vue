@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="searchPosts()">
+    <form @submit.prevent="searchPosts(), searchProfiles()">
         <input class="w-100" type="text" v-model="search" placeholder="Search..." />
     </form>
 </template>
@@ -9,6 +9,7 @@ import { ref } from 'vue';
 import { logger } from '../utils/Logger.js';
 import Pop from '../utils/Pop.js';
 import { postsService } from '../services/PostsService.js';
+import { profileService } from "../services/ProfileService.js";
 
 
 export default {
@@ -22,6 +23,17 @@ export default {
                     const searchTerm = search.value
                     logger.log('searching post', searchTerm)
                     await postsService.searchPosts(searchTerm)
+                } catch (error) {
+                    logger.error(error)
+                    Pop.toast(error.message, 'error')
+                }
+            },
+                
+                        async searchProfiles() {
+                try {
+                    const searchTerm = search.value
+                    logger.log('searching post', searchTerm)
+                    await profileService.searchProfiles(searchTerm)
                 } catch (error) {
                     logger.error(error)
                     Pop.toast(error.message, 'error')

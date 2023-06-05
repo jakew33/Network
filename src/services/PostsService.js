@@ -24,8 +24,8 @@ class PostsService {
     AppState.posts = res.data.posts.map(p => new Post((p)))
   }
 
-  async createPost(formData) {
-    const res = await api.post('api/posts', formData)
+  async createPost(postData) {
+    const res = await api.post('api/posts', postData)
     logger.log('[Making Post]', res.data)
     AppState.posts.unshift(new Post(res.data))
   }
@@ -54,6 +54,7 @@ class PostsService {
     })
     logger.log('[Searching Posts]', res.data)
     AppState.query = searchTerm
+    AppState.posts = res.data.results.map(p => new Post(p))
   }
 }
 
