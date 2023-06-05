@@ -12,15 +12,14 @@ class ProfileService {
   }
 
     async searchProfiles(searchTerm) {
-    const res = await api.get('search/profiles', {
-      params: {
-        query: searchTerm,
-        api_key: 'pOXw2OGv1LsYi7LEBmDF04RLkXQvldml'
-      }
-    })
-    logger.log('[Searching Profiles]', res.data)
-    AppState.query = searchTerm
-    AppState.posts = res.data.results.map(p => new Profile(p))
+    // const res = await api.get('api/profiles', {
+    //   params: {
+    //     query: searchTerm,
+    //   }
+    // })
+    // logger.log('[Searching Profiles]', res.data)
+    // AppState.query = searchTerm
+    // AppState.posts = res.data.results.map(p => new Profile(p))
   }
 }
 

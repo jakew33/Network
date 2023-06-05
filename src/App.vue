@@ -6,11 +6,13 @@
     <router-view />
   </main>
 
-        <!-- <div class="row justify-content-center align-content-center">
-        <div class="col-md-4 m-auto postCard" v-for="b in banner" :key="b.id">
-          <PostCard :bannerProp="a"/>
-        </div>
-      </div> -->
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12" v-for="b in banners" :key="b.id">
+        <BannerCard :bannerProp="b"/>
+      </div>
+    </div>
+  </div>
 
 </template>
 
@@ -19,6 +21,7 @@ import { computed, onMounted } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 import { bannersService } from "./services/BannersService.js"
+import Pop from "./utils/Pop.js"
 // import Pop from "./utils/Pop.js"
 
 export default {
@@ -27,8 +30,7 @@ export default {
       try {
         await bannersService.getBanners()
       } catch (error) {
-          // Pop.error(error, "[Getting Ads]")
-        
+          Pop.error(error, "[Getting Ads]")
       }
     }
     onMounted(() => {
@@ -36,7 +38,7 @@ export default {
     })
     return {
       appState: computed(() => AppState),
-      // banners: computed(() => AppState.banners)
+      banners: computed(() => AppState.banners)
     }
   },
   components: { Navbar }

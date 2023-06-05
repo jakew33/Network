@@ -46,15 +46,14 @@ class PostsService {
   }
 
   async searchPosts(searchTerm) {
-    const res = await api.get('search/posts', {
+    const res = await api.get('api/posts', {
       params: {
         query: searchTerm,
-        api_key: 'pOXw2OGv1LsYi7LEBmDF04RLkXQvldml'
       }
     })
     logger.log('[Searching Posts]', res.data)
     AppState.query = searchTerm
-    AppState.posts = res.data.results.map(p => new Post(p))
+    AppState.posts = res.data.posts.map(p => new Post(p))
   }
 }
 

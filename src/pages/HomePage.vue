@@ -1,6 +1,6 @@
 <template>
   <section class="row justify-content-end m-3 pt-1">
-    <div class="col-3">
+    <div class="col-2">
       <SearchBar />
     </div>
   </section>
@@ -14,7 +14,7 @@
   </div>
 </section>
 
-    <div class="container">
+    <div class="container justify-content-start">
       <div class="row">
         <div class="col-md-12" v-for="p in posts" :key="p.id">
           <PostCard :postProp="p"/>
@@ -22,13 +22,7 @@
       </div>
     </div>
 
-      <!-- <div class="container">
-    <div class="row">
-      <div class="col-md-12" v-for="b in banners" :key="b.id">
-        <BannerCard :bannerProp="b"/>
-      </div>
-    </div>
-  </div> -->
+  
     
     <section class="row justify-content-center pt-5">
       <div class="p-3">
@@ -51,18 +45,18 @@ import PostCard from "../components/PostCard.vue";
 import PostForm from "../components/PostForm.vue";
 import { logger } from "../utils/Logger.js";
 import { bannersService } from "../services/BannersService.js";
-// import SearchBar from "../components/SearchBar.vue.";
+import SearchBar from '../components/SearchBar.vue'
   
 
 export default {
-  components: { PostCard, PostForm,},
+  components: { PostCard, PostForm, SearchBar},
     setup() {
 
         async function getPosts() {
           try {
                 await postsService.getPosts();
               } catch (error) {
-                logger.error(error)
+                logger.error(error, "[posts]")
                 Pop.error(error, "[Getting Posts]");
             }
         }

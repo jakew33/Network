@@ -2,11 +2,11 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-4">
-      <img class="my-5 mx-5 postImg image-fluid" :src="bannerProp?.linkURL" alt="">
+      <img class="my-5 mx-5 postImg image-fluid" :src="bannerProp?.banner" alt="">
     </div>
   </div>
     <div>
-    <img :href="bannerProp.linkURL" target="_blank">{{ bannerProp. }}>
+    <img :href="bannerProp?.banner" target="_blank">
   </div>
 </div>
 </template>

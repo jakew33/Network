@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="searchPosts(), searchProfiles()">
-        <input class="w-100" type="text" v-model="search" placeholder="Search..." />
+        <input class="w-120" type="text" v-model="search" placeholder="Search..." />
     </form>
 </template>
 

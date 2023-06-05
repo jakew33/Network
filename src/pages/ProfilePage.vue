@@ -16,7 +16,7 @@
                 <div class="col-4">
                   <p>Username: <b>{{ profile.name }}</b></p>
                   <p>Subs: <b>{{ profile.subs.length}}</b></p>
-                  <p class="align-content-end">Contact: <b>{{ profile.email }}</b></p>
+                  <p>e-mail: <b>{{ profile.email }}</b></p>
                   <p>Socials: <b>{{ profile.github }}</b></p>
                   <p>About Me: <b>{{ profile.bio }}</b></p>
                   <p>Resume: <b>{{ profile.resume}}</b></p>
@@ -32,16 +32,21 @@
         </div>
       </div>
     </div>
+    
     <div class="row justify-content-center align-content-center">
       <div class="col-md-12 m-auto postCard" v-for="p in posts" :key="p.id">
         <PostCard :postProp="p"/>
       </div>
     </div>
   </div>
+
+      <section class="row justify-content-center pt-5">
+      <div class="p-3">
+        <button :disabled="!newer" @click="$event => changePage(newer)" class="btn btn-light">Newer Posts</button>
+        <button :disabled="!older" @click="$event => changePage(older)" class="btn btn-light">Older Posts</button>
+      </div>
+    </section>
 </template>
-
-
-
 
 <script>
 import { computed, onMounted } from "vue";
@@ -80,7 +85,17 @@ export default {
         });
         return {
             profile: computed(() => AppState.activeProfile),
-            posts: computed(() => AppState.posts)
+            posts: computed(() => AppState.posts),
+            newer: computed(() => AppState.newer),
+            older: computed(() => AppState.older),
+
+              async changePage(url) {
+              try {
+                await postsService.changePage(url)
+              } catch (error) {
+                Pop.error(error)
+              }
+            }
         };
     },
     components: { PostCard }
@@ -90,20 +105,8 @@ export default {
 
 <style lang="scss" scoped>
 
-.profileCard {
-  --cover-img: url('');
-
-  background-image: var(--coverImg);
-  aspect-ratio: 1/1;
-  background-size: contain;
-  background-repeat: no-repeat;
-  place-content: center;
-}
-
-
-
 .profilePicture{
-  height: 200px;
+  height: 100px;
   aspect-ratio: 1/1;
 }
 

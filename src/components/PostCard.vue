@@ -12,6 +12,7 @@
         <img class="my-5 mx-5 postImg" :src="postProp?.imgUrl" alt="">
         <p class="text-light"><i class="text-light mdi mdi-heart"></i> {{ postProp.likeIds.length }}</p>
         <p class="text-light">Posted: {{ postProp.createdAt }}</p> 
+        <button class ="col-2 justify-content-center m-3" @click="deletePost(postProp.id)">Delete</button>
         </div>
       </div>
     </div>  
