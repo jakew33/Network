@@ -6,7 +6,7 @@
     </div>
   </div>
     <div>
-    <img :href="bannerProp.linkURL" target="_blank">{{ bannerProp.banner }}>
+    <img :href="bannerProp.linkURL" target="_blank">{{ bannerProp. }}>
   </div>
 </div>
 </template>
@@ -17,7 +17,7 @@ import { Banner } from "../models/Banner.js";
 
 export default {
   props:{
-    adProp: {type: Banner, required:true}
+    bannerProp: {type: Banner, required:true}
   },
   setup(){
   return {  }
