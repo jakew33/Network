@@ -1,6 +1,6 @@
 <template>
 
-  <div>Sup</div>
+  <div></div>
 
 </template>
 
@@ -26,17 +26,17 @@ export default {
 
 <style lang="scss" scoped>
 
-.profileCard{
-  background-image: v-bind(coverImg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  place-content: center;
-}
+// .profileCard{
+//   background-image: v-bind(coverImg);
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   place-content: center;
+// }
 
-.profilePicture {
-  height: 100px;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
+// .profilePicture {
+//   height: 100px;
+//   aspect-ratio: 1/1;
+//   object-fit: cover;
+// }
 
 </style>

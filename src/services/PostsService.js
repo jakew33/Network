@@ -30,10 +30,12 @@ class PostsService {
     AppState.posts.unshift(new Post(res.data))
   }
 
-  async deletePost(formData) {
-    const res = await api.delete('api/posts/id')
+  async deletePost(postId) {
+    const res = await api.delete(`api/posts/${postId}`)
     logger.log('[Deleting Post]', res.data)
+    AppState.posts = AppState.posts.filter(p => p.id != postId)
   }
+
 
   async changePage(url) {
     const res = await api.get(url)
@@ -44,13 +46,13 @@ class PostsService {
   }
 
   async searchPosts(searchTerm) {
-    const res = await api.get('search', {
+    const res = await api.get('search/posts', {
       params: {
         query: searchTerm,
         api_key: 'pOXw2OGv1LsYi7LEBmDF04RLkXQvldml'
       }
     })
-    logger.log('[SearchingApi]', res.data)
+    logger.log('[Searching Posts]', res.data)
     AppState.query = searchTerm
   }
 }

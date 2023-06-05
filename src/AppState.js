@@ -11,7 +11,7 @@ export const AppState = reactive({
   older: null,
   query: null,
 
-   /** @type {import('./models/Ad.js').Ad[]} */
-  ads: []
+   /** @type {import('./models/Banner.js').Banner[]} */
+  banners: []
 
 })

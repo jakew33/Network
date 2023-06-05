@@ -1,5 +1,5 @@
 <template>
-  <form class="card elevation-1" @submit.prevent="handleSubmit">
+  <form class="card elevation-1 align-content-center" @submit.prevent="handleSubmit">
 
     <div class="card-body">
       <div class="form-floating mb-3">
@@ -17,9 +17,15 @@
         <label for="cover-img">Cover Image:</label>
       </div>
       <div class="form-floating mb-3">
-        <input name="cover-img" class="form-control" placeholder="cover Image" type="url"  v-model="editable.socialPlatform">
-        <label for="cover-img">Social:</label>
+        <input name="name" class="form-control" placeholder="Bio" type="text" required v-model="editable.bio">
+        <label for="bio">About Me:</label>
       </div>
+            <div class="form-floating mb-3">
+        <input name="name" class="form-control" placeholder="Class" type="text" required v-model="editable.class">
+        <label for="bio">Class:</label>
+      </div>
+
+
     </div>
     <div class="card-footer text-end">
       <button class="btn btn-outline-primary" type="submit">Save Account</button>
@@ -53,7 +59,7 @@ export default {
         
       }
     }
-   }
+    }
   }
 };
 

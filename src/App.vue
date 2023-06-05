@@ -17,25 +17,25 @@
 import { computed, onMounted } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
-import { adsService } from "./services/AdsService.js"
+import { bannersService } from "./services/BannersService.js"
 import Pop from "./utils/Pop.js"
 
 export default {
   setup() {
-    async function getAds() {
+    async function getBanners() {
       try {
-        await adsService.getAds()
+        await bannersService.getBanners()
       } catch (error) {
           Pop.error(error, "[Getting Ads]")
         
       }
     }
     onMounted(() => {
-      getAds();
+      getBanners();
     })
     return {
       appState: computed(() => AppState),
-      ads: computed(() => AppState.ads)
+      banners: computed(() => AppState.banners)
     }
   },
   components: { Navbar }

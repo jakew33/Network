@@ -11,9 +11,14 @@ const routes = [
     name: 'Home',
     component: loadPage('HomePage'),
     beforeEnter(to, from, next){
-
       next()
     }
+  },
+  
+  {
+    path: '/profile/:id',
+    name: 'Profile',
+    component: loadPage('ProfilePage')
   },
   {
     path: '/about',
@@ -27,11 +32,6 @@ const routes = [
     component: loadPage('AccountPage'),
     beforeEnter: authGuard
   },
-  {
-    path: '/profile/:id',
-    name: 'Profile',
-    component: loadPage('ProfilePage')
-  }
 
 ]
 

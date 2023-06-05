@@ -1,5 +1,4 @@
 <template>
-    <!-- NOTE .prevent is the same as saying 'window.event.preventDefault()' -->
     <form @submit.prevent="searchPosts()">
         <input class="w-100" type="text" v-model="search" placeholder="Search..." />
     </form>
@@ -10,6 +9,8 @@ import { ref } from 'vue';
 import { logger } from '../utils/Logger.js';
 import Pop from '../utils/Pop.js';
 import { postsService } from '../services/PostsService.js';
+
+
 export default {
     setup() {
         const search = ref('')
@@ -19,7 +20,7 @@ export default {
             async searchPosts() {
                 try {
                     const searchTerm = search.value
-                    logger.log('searching movie', searchTerm)
+                    logger.log('searching post', searchTerm)
                     await postsService.searchPosts(searchTerm)
                 } catch (error) {
                     logger.error(error)

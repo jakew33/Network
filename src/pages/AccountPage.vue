@@ -1,8 +1,21 @@
 <template>
-  <div class="about text-center">
-    <h1>Welcome {{ account.name }}</h1>
-    <img class="rounded" :src="account.picture" alt="" />
-    <p>{{ account.email }}</p>
+  <div class="about text-center account-page ">
+    <div class="container-fluid my-2">
+      <div class="row">
+        <div class="col-md-3">
+
+          <ProfileCard :profile="account" />
+
+        </div>
+        <div class="col-md-6 m-auto">
+
+          <AccountForm />
+
+
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
