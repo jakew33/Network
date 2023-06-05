@@ -4,8 +4,6 @@
   </header>
   <main>
     <router-view />
-  </main>
-
     <div class="container">
     <div class="row">
       <div class="col-md-12" v-for="b in banners" :key="b.id">
@@ -13,6 +11,8 @@
       </div>
     </div>
   </div>
+  </main>
+
 
 </template>
 
